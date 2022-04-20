@@ -16,4 +16,9 @@ export class PracticeController {
   findAll() {
     return this.practiceService.findAll();
   }
+
+  @Get('/random')
+  findRandom() {
+    return this.practiceService.findRandom();
+  }
 }

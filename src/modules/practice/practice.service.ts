@@ -21,4 +21,14 @@ export class PracticeService {
   findAll() {
     return this.practiceWordModel.find().exec();
   }
+
+  // Get a random value in practiceWordModel mongoose collection
+  async findRandom() {
+    const randomWord = await this.practiceWordModel.aggregate([
+      { $sample: { size: 1 } },
+      { $project: { _id: 0, word: 1 } },
+    ]);
+
+    return randomWord[0];
+  }
 }
