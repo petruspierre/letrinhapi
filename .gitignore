@@ -1,4 +1,6 @@
 .env
+data/personNames.js
+data/wordData.json
 
 # compiled output
 /dist

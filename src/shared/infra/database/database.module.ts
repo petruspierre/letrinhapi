@@ -3,11 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { PrismaService } from './prisma/prisma.service';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(
-      'mongodb://letrinha:letrinha@localhost:27017/?authMechanism=DEFAULT',
-    ),
-  ],
+  imports: [MongooseModule.forRoot(process.env.MONGO_DATABASE_URL)],
   providers: [PrismaService],
   exports: [PrismaService],
 })

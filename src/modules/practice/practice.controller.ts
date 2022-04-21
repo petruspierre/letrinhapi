@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { PracticeService } from './practice.service';
 import { CreatePracticeDto } from './dto/create-practice.dto';
+import { GetRandomWordDto } from './dto/get-random-word.dto';
 
 @Controller('practice')
 export class PracticeController {
@@ -18,7 +19,8 @@ export class PracticeController {
   }
 
   @Get('/random')
-  findRandom() {
-    return this.practiceService.findRandom();
+  findRandom(@Body() getRandomWordDto: GetRandomWordDto) {
+    const { wordLength, sampleSize } = getRandomWordDto;
+    return this.practiceService.findRandom({ wordLength, sampleSize });
   }
 }

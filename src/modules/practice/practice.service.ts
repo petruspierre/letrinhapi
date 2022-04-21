@@ -5,6 +5,7 @@ import {
   PracticeWordDocument,
 } from './schemas/practice-word.schema';
 import { Model } from 'mongoose';
+import { GetRandomWordDto } from './dto/get-random-word.dto';
 
 @Injectable()
 export class PracticeService {
@@ -23,12 +24,12 @@ export class PracticeService {
   }
 
   // Get a random value in practiceWordModel mongoose collection
-  async findRandom() {
+  async findRandom({ wordLength, sampleSize }: GetRandomWordDto) {
     const randomWord = await this.practiceWordModel.aggregate([
-      { $sample: { size: 1 } },
-      { $project: { _id: 0, word: 1 } },
+      { $match: { length: wordLength } },
+      { $sample: { size: sampleSize } },
     ]);
 
-    return randomWord[0];
+    return randomWord;
   }
 }
