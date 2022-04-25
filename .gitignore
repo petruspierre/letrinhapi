@@ -1,6 +1,7 @@
 .env
 data/personNames.js
 data/wordData.json
+data/practiceWords.json
 
 # compiled output
 /dist

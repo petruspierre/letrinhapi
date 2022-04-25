@@ -26,8 +26,8 @@ export class PracticeService {
   // Get a random value in practiceWordModel mongoose collection
   async findRandom({ wordLength, sampleSize }: GetRandomWordDto) {
     const randomWord = await this.practiceWordModel.aggregate([
-      { $match: { length: wordLength } },
-      { $sample: { size: sampleSize } },
+      { $match: { length: parseInt(wordLength) ?? 5 } },
+      { $sample: { size: parseInt(sampleSize) ?? 1 } },
     ]);
 
     return randomWord;

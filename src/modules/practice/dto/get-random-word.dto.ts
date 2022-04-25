@@ -1,4 +1,4 @@
 export class GetRandomWordDto {
-  wordLength: number;
-  sampleSize: number;
+  wordLength: string;
+  sampleSize: string;
 }
