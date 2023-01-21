@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Duel } from 'duel/entities/duel.entity';
-import { Player } from 'duel/entities/player.entity';
+import { Duel } from '@modules/duel/entities/duel.entity';
+import { Player } from '@modules/duel/entities/player.entity';
 import { v4 as uuid } from 'uuid';
 
 @Injectable()
