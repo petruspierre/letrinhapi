@@ -37,4 +37,8 @@ export class Player {
   get score() {
     return this._score;
   }
+
+  get gameId() {
+    return this._gameId;
+  }
 }
